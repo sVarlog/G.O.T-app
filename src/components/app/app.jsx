@@ -3,6 +3,7 @@ import {Col, Row, Container} from 'reactstrap';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from '../header/header.jsx';
 import RandomChar from '../randomChar/randomChar.jsx';
+import RandomBook from '../randomBook/randomBook.jsx';
 import ErrorMessage from '../errorMessage/errorMessage.jsx';
 import CharacterPage from '../pages/characterPage.jsx';
 import GotService from '../../service/gotService';
@@ -19,13 +20,14 @@ export default class App extends Component {
         super(props);
         this.state = {
             charShow: true,
+            bookShow: true,
             error: false
         }
         this.changeCharElement = this.changeCharElement.bind(this);
+        this.changeBookElement = this.changeBookElement.bind(this);
     }
 
     componentDidCatch() {
-        console.log('error');
         this.setState({
             error: true
         });
@@ -37,8 +39,15 @@ export default class App extends Component {
         });
     }
 
+    changeBookElement() {
+        this.setState((state) => {
+            return {bookShow: !state.bookShow}
+        });
+    }
+
     render() {
         const charShow = this.state.charShow ? <RandomChar interval={15000}/> : null;
+        const bookShow = this.state.bookShow ? <RandomBook interval={15000}/> : null;
 
         if (this.state.error) {
             return <ErrorMessage />
@@ -51,12 +60,18 @@ export default class App extends Component {
                         <Header />
                     </Container>
                     <Container>
-                        <Row>
-                            <Col lg={{size: 5, offset: 0}}>
+                        <Row className="justify-content-between">
+                            <Col lg={{size: 5, offset: 0}} className={style["left"]}>
                                 {charShow}
                                 <button 
                                     onClick={this.changeCharElement}
-                                    className={style["hideChar"]}>Toggle random character</button>
+                                    className={style["hideChar"]}>{this.state.charShow ? `Hide random character` : `Show random character`}</button>
+                            </Col>
+                            <Col lg={{size: 5, offset: 0}} className={style["left"]}>
+                                {bookShow}
+                                <button 
+                                    onClick={this.changeBookElement}
+                                    className={style["hideChar"]}>{this.state.bookShow ? `Hide random book` : `Show random book`}</button>
                             </Col>
                         </Row>
 

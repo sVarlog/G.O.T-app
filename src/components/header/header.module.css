@@ -20,6 +20,18 @@
 }
 
 .header-links li {
-    margin-right: 20px;
+    margin-left: 20px;
     font-size: 18px;
+}
+
+@media screen and (max-width: 575px) {
+    .header{
+        flex-direction: column;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    .header-links li{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }

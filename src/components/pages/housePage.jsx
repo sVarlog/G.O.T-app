@@ -37,7 +37,8 @@ class HousePage extends Component {
                     this.props.history.push(itemId);
                 }}
                 getData={this.gotService.getAllHouses}
-                renderItem={el => el.name}/>
+                renderItem={el => el.name}
+                itemsName={'Houses'}/>
         )
     }
 }

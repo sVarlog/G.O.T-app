@@ -37,7 +37,8 @@ class CharacterPage extends Component {
                     this.props.history.push(itemId);
                 }}
                 getData={this.gotService.getAllCharacters}
-                renderItem={({name, gender}) => `${name} (${gender})`}/>
+                renderItem={({name, gender}) => `${name} (${gender})`}
+                itemsName={'Characters'}/>
         )
     }
 }
