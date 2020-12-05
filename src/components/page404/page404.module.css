@@ -1,0 +1,16 @@
+.content{
+    color: #000;
+    background: #fff;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content a{
+    border: 1px solid #000;
+    padding: 5px 15px;
+    cursor: pointer;
+}

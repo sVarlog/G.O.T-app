@@ -1,0 +1,14 @@
+h1{
+    color: #fff;
+    text-align: center;
+}
+
+button.hideChar {
+    margin-bottom: 40px;
+    outline: none!important;
+    border: 0!important;
+    padding: 10px 15px;
+    background: #1837D0;
+    color: #fff;
+    border-radius: 5px;
+}
